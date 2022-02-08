@@ -22,7 +22,7 @@ def request_page():
     netice = _getPaymentInfo(gelen_sorgu)
     print(netice)
     user_query = str(request.args.get('id'))
-    data_set = {'Sorgu neticesi': "UGURLU", "Cavab":f"{netice}"}
+    data_set = {'Sorgu neticesi': "UGURLU", "Cavab":netice}
     #{kod, son_odenis_meblegi, son_odenis_tarixi, yekun_borc}
     json_dump = json.dumps(data_set)
 
@@ -68,9 +68,9 @@ def _getPaymentInfo(kod):
             yekun_borc_ends = yb_kesim.find("</b>")
             yekun_borc = yb_kesim[yekun_borc_starts:yekun_borc_ends]
 
-            print(
+            '''print(
                 f"                       {yekun_borc} | {son_odenis_tarixi} | {son_odenis_meblegi}"
-            )
+            )'''
         
 
     except mechanize.HTTPError:
